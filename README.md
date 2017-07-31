@@ -9,3 +9,5 @@ Eg: v1.0-Ca (version 1, made by Callum)
     v1.7-J (version 1.7 made by Jonathan)
 
 Please note that any design documents or planning are not to be put in this repository.
+
+If you don't read this Coen I WILL KILL YOU!! c:
