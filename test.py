@@ -3,41 +3,57 @@ file = [i.strip().split() for i in open("results.txt").readlines()][1:]
 #Event No, Age Level, Gender, Event Name, Place, StuCode, Competitor_First, Competitor_Last, Team/House, Performance, Points
 
 #Discus function. Returns a sorted list of entries
-def discus(start_end,f):
+def discus(f):
     array = []
-    for j in range(start_end[0],start_end[1]):
-        if len(f[j]) == 11:
-            array.append((float(f[j][-2]),float(f[j][-1]),f[j][-5]+" "+f[j][-4]))
+    for j in f:
+        # NOTE: Some discus entry lengths are larger than 11 because of the Student Codes - They can have spaces.
+        if len(j) >= 11:
+            array.append((float(j[-2]),float(j[-1]),j[-5]+" "+j[-4]))
         else:
-            array.append((float(f[j][-1]),"DSQ",f[j][-4]+" "+f[j][-3]))
+            array.append((float(j[-1]),"DSQ",j[-4]+" "+j[-3]))
     return sorted(array)[::-1]
-"""events = []
-for line in file:
-    #get rid of relays and set place, distance and event to int/float
-    if line[6] == 'Relay':
-        continue
-    line[0] = int(line[0])
-    line[4] = int(line[4])
-    line[9] = float(line[9])
-    try:
-        events[line[0]].append(line)
-    except:
-        events.append(line)
-"""
-# Coen, I'm going to assume that the events will appear in the same order this year. This will definetely be helpful!
 
-#U/13 Discus (Normal length is 11. Disqualified lines should be length 10 and should be missing the points part.)
+#High Jump function. Returns a sorted list of entries DOESN'T WORK YET
+def high_jump(f):
+    array = []
+    for i in f:
+        if len(i) >= 12:
+            array.append((float(i[-2]),float(i[-1]),i[-5]+" "+i[-4]))
+        else:
+            array.append((float(i[-1]),"DSQ",i[-4]+" "+i[-3]))
+    return sorted(array)
+        
+#Ok Coen, I've got Discus "Sorted" (harhar lol)
 
-discus_U13 = discus([0,16],file)
-discus_U13 = discus([16,31],file)
+array = []
+results = {}
 
-#U/13 High Jump
+i = 0
+number = 1
+l = len(file)
 
-high_U13 = []
-for j in range(32,49):
-    high_U13.append((float(file[j][-2]),float(file[j][-1]),file[j][-5]+" "+file[j][-4]))
+while i < l:
+    while i < l and int(file[i][0]) == number:
+        array.append(file[i])
+        i += 1
+            
+    age_level = file[i-1][1]
+    event = file[i-1][3]
+    if event.lower() == "discus":
+        if age_level+event in results.keys():
+            results[age_level+event].extend(discus(array))
+            results[age_level+event] = sorted(results[age_level+event])[::-1]
+        else:
+            results[age_level+event] = discus(array)
+    elif event.lower() == "high":
+        if age_level+event in results.keys():
+            results[age_level+event].extend(high_jump(array))
+            results[age_level+event] = sorted(results[age_level+event])[::-1]
+        else:
+            results[age_level+event] = high_jump(array)
 
-high_U13 = sorted(high_U13)[::-1]
+    number += 1
+
+    array = []
 
 
-#U/
