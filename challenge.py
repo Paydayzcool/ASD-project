@@ -140,7 +140,7 @@ for element, value in results.items():
     else:
         students[element[0:4]][value[4][2]] = [value[4].append(element[4:],1])
 """VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV"""                                               
-# COEN, LOOK HERE! I ONLY NEED TO TAKE CARE OF THE RELAYS NOW.
+# COEN, LOOK HERE! I've got the data storage done!
 file = [i.strip().split() for i in open("results.txt").readlines()][1:]
 #exclude 1st line because its just what the individual numbers mean
 #Event No, Age Level, Gender, Event Name, Place, StuCode, Competitor_First, Competitor_Last, Team/House, Performance, Points
@@ -149,6 +149,7 @@ file = [i.strip().split() for i in open("results.txt").readlines()][1:]
 def discus(f):
     array = []
     for j in f:
+        #Checking for disqualifications
         if j[4] != "998":
             array.append((float(j[-2]),float(j[-1]),j[-5]+" "+j[-4],j[-3]))
         else:
@@ -159,6 +160,7 @@ def discus(f):
 def jump_put(f):
     array = []
     for i in f:
+        #Checking for disqualifications
         if i[5] != "998":
             array.append((float(i[-2]),float(i[-1]),i[-5]+" "+i[-4],i[-3]))
         else:
@@ -169,6 +171,7 @@ def jump_put(f):
 def timed(f):
     array = []
     for j in f:
+        #Checking for disqualifications
         if j[4] != "998":
             array.append((j[-2],float(j[-1]),j[-5]+" "+j[-4],j[-3]))
         else:
@@ -177,10 +180,18 @@ def timed(f):
 
 #Relay events function (Let's say the Ray House Run is also a relay)
 def relay(f):
-    pass
+    array = []
+    for j in f:
+        #Checking for disqualifications
+        if j[4] != "998":
+            array.append((j[-2],float(j[-1]),j[-3]))
+        else:
+            array.append((j[-1],"DSQ",j[-2]))
+    return sorted(array)
 
 array = []
 results = {}
+#I will implement the scoring soon.
 house_points = {
     "N": 0,
     "J": 0,
@@ -227,14 +238,22 @@ while i < l:
             results[age_level+event] = sorted(results[age_level+event])
         else:
             results[age_level+event] = timed(array)
+    elif event.lower() in ["10","4x100m","ray"]:
+        if age_level+event in results.keys():
+            results[age_level+event].extend(relay(array))
+            results[age_level+event] = sorted(results[age_level+event])
+        else:
+            results[age_level+event] = relay(array)
             
     number += 1
 
     array = []
 
 for i,j in results.items():
-    if "400m" in i:
+    if "Ray" in i:
         print(i)
         [print(k) for k in j]
         print("")
+
+
 
