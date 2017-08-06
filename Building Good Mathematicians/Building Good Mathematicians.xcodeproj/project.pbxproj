@@ -1,0 +1,530 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7B6A48391F36C0B80063DBF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6A48381F36C0B80063DBF4 /* AppDelegate.swift */; };
+		7B6A483B1F36C0B80063DBF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6A483A1F36C0B80063DBF4 /* ViewController.swift */; };
+		7B6A483E1F36C0B80063DBF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6A483C1F36C0B80063DBF4 /* Main.storyboard */; };
+		7B6A48401F36C0B80063DBF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B6A483F1F36C0B80063DBF4 /* Assets.xcassets */; };
+		7B6A48431F36C0B80063DBF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6A48411F36C0B80063DBF4 /* LaunchScreen.storyboard */; };
+		7B6A484E1F36C0B90063DBF4 /* Building_Good_MathematiciansTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6A484D1F36C0B90063DBF4 /* Building_Good_MathematiciansTests.swift */; };
+		7B6A48591F36C0B90063DBF4 /* Building_Good_MathematiciansUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6A48581F36C0B90063DBF4 /* Building_Good_MathematiciansUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7B6A484A1F36C0B90063DBF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B6A482D1F36C0B80063DBF4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B6A48341F36C0B80063DBF4;
+			remoteInfo = "Building Good Mathematicians";
+		};
+		7B6A48551F36C0B90063DBF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B6A482D1F36C0B80063DBF4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B6A48341F36C0B80063DBF4;
+			remoteInfo = "Building Good Mathematicians";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7B6A48351F36C0B80063DBF4 /* Building Good Mathematicians.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Building Good Mathematicians.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B6A48381F36C0B80063DBF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7B6A483A1F36C0B80063DBF4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7B6A483D1F36C0B80063DBF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7B6A483F1F36C0B80063DBF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7B6A48421F36C0B80063DBF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7B6A48441F36C0B80063DBF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B6A48491F36C0B90063DBF4 /* Building Good MathematiciansTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Building Good MathematiciansTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B6A484D1F36C0B90063DBF4 /* Building_Good_MathematiciansTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building_Good_MathematiciansTests.swift; sourceTree = "<group>"; };
+		7B6A484F1F36C0B90063DBF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B6A48541F36C0B90063DBF4 /* Building Good MathematiciansUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Building Good MathematiciansUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B6A48581F36C0B90063DBF4 /* Building_Good_MathematiciansUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building_Good_MathematiciansUITests.swift; sourceTree = "<group>"; };
+		7B6A485A1F36C0B90063DBF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7B6A48321F36C0B80063DBF4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B6A48461F36C0B90063DBF4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B6A48511F36C0B90063DBF4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7B6A482C1F36C0B80063DBF4 = {
+			isa = PBXGroup;
+			children = (
+				7B6A48371F36C0B80063DBF4 /* Building Good Mathematicians */,
+				7B6A484C1F36C0B90063DBF4 /* Building Good MathematiciansTests */,
+				7B6A48571F36C0B90063DBF4 /* Building Good MathematiciansUITests */,
+				7B6A48361F36C0B80063DBF4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7B6A48361F36C0B80063DBF4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B6A48351F36C0B80063DBF4 /* Building Good Mathematicians.app */,
+				7B6A48491F36C0B90063DBF4 /* Building Good MathematiciansTests.xctest */,
+				7B6A48541F36C0B90063DBF4 /* Building Good MathematiciansUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7B6A48371F36C0B80063DBF4 /* Building Good Mathematicians */ = {
+			isa = PBXGroup;
+			children = (
+				7B6A48381F36C0B80063DBF4 /* AppDelegate.swift */,
+				7B6A483A1F36C0B80063DBF4 /* ViewController.swift */,
+				7B6A483C1F36C0B80063DBF4 /* Main.storyboard */,
+				7B6A483F1F36C0B80063DBF4 /* Assets.xcassets */,
+				7B6A48411F36C0B80063DBF4 /* LaunchScreen.storyboard */,
+				7B6A48441F36C0B80063DBF4 /* Info.plist */,
+			);
+			path = "Building Good Mathematicians";
+			sourceTree = "<group>";
+		};
+		7B6A484C1F36C0B90063DBF4 /* Building Good MathematiciansTests */ = {
+			isa = PBXGroup;
+			children = (
+				7B6A484D1F36C0B90063DBF4 /* Building_Good_MathematiciansTests.swift */,
+				7B6A484F1F36C0B90063DBF4 /* Info.plist */,
+			);
+			path = "Building Good MathematiciansTests";
+			sourceTree = "<group>";
+		};
+		7B6A48571F36C0B90063DBF4 /* Building Good MathematiciansUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7B6A48581F36C0B90063DBF4 /* Building_Good_MathematiciansUITests.swift */,
+				7B6A485A1F36C0B90063DBF4 /* Info.plist */,
+			);
+			path = "Building Good MathematiciansUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7B6A48341F36C0B80063DBF4 /* Building Good Mathematicians */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B6A485D1F36C0B90063DBF4 /* Build configuration list for PBXNativeTarget "Building Good Mathematicians" */;
+			buildPhases = (
+				7B6A48311F36C0B80063DBF4 /* Sources */,
+				7B6A48321F36C0B80063DBF4 /* Frameworks */,
+				7B6A48331F36C0B80063DBF4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Building Good Mathematicians";
+			productName = "Building Good Mathematicians";
+			productReference = 7B6A48351F36C0B80063DBF4 /* Building Good Mathematicians.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7B6A48481F36C0B90063DBF4 /* Building Good MathematiciansTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B6A48601F36C0B90063DBF4 /* Build configuration list for PBXNativeTarget "Building Good MathematiciansTests" */;
+			buildPhases = (
+				7B6A48451F36C0B90063DBF4 /* Sources */,
+				7B6A48461F36C0B90063DBF4 /* Frameworks */,
+				7B6A48471F36C0B90063DBF4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B6A484B1F36C0B90063DBF4 /* PBXTargetDependency */,
+			);
+			name = "Building Good MathematiciansTests";
+			productName = "Building Good MathematiciansTests";
+			productReference = 7B6A48491F36C0B90063DBF4 /* Building Good MathematiciansTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7B6A48531F36C0B90063DBF4 /* Building Good MathematiciansUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B6A48631F36C0B90063DBF4 /* Build configuration list for PBXNativeTarget "Building Good MathematiciansUITests" */;
+			buildPhases = (
+				7B6A48501F36C0B90063DBF4 /* Sources */,
+				7B6A48511F36C0B90063DBF4 /* Frameworks */,
+				7B6A48521F36C0B90063DBF4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B6A48561F36C0B90063DBF4 /* PBXTargetDependency */,
+			);
+			name = "Building Good MathematiciansUITests";
+			productName = "Building Good MathematiciansUITests";
+			productReference = 7B6A48541F36C0B90063DBF4 /* Building Good MathematiciansUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7B6A482D1F36C0B80063DBF4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "sqrt(i)";
+				TargetAttributes = {
+					7B6A48341F36C0B80063DBF4 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+					7B6A48481F36C0B90063DBF4 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 7B6A48341F36C0B80063DBF4;
+					};
+					7B6A48531F36C0B90063DBF4 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 7B6A48341F36C0B80063DBF4;
+					};
+				};
+			};
+			buildConfigurationList = 7B6A48301F36C0B80063DBF4 /* Build configuration list for PBXProject "Building Good Mathematicians" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7B6A482C1F36C0B80063DBF4;
+			productRefGroup = 7B6A48361F36C0B80063DBF4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7B6A48341F36C0B80063DBF4 /* Building Good Mathematicians */,
+				7B6A48481F36C0B90063DBF4 /* Building Good MathematiciansTests */,
+				7B6A48531F36C0B90063DBF4 /* Building Good MathematiciansUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7B6A48331F36C0B80063DBF4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B6A48431F36C0B80063DBF4 /* LaunchScreen.storyboard in Resources */,
+				7B6A48401F36C0B80063DBF4 /* Assets.xcassets in Resources */,
+				7B6A483E1F36C0B80063DBF4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B6A48471F36C0B90063DBF4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B6A48521F36C0B90063DBF4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7B6A48311F36C0B80063DBF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B6A483B1F36C0B80063DBF4 /* ViewController.swift in Sources */,
+				7B6A48391F36C0B80063DBF4 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B6A48451F36C0B90063DBF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B6A484E1F36C0B90063DBF4 /* Building_Good_MathematiciansTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B6A48501F36C0B90063DBF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B6A48591F36C0B90063DBF4 /* Building_Good_MathematiciansUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7B6A484B1F36C0B90063DBF4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B6A48341F36C0B80063DBF4 /* Building Good Mathematicians */;
+			targetProxy = 7B6A484A1F36C0B90063DBF4 /* PBXContainerItemProxy */;
+		};
+		7B6A48561F36C0B90063DBF4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B6A48341F36C0B80063DBF4 /* Building Good Mathematicians */;
+			targetProxy = 7B6A48551F36C0B90063DBF4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7B6A483C1F36C0B80063DBF4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B6A483D1F36C0B80063DBF4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7B6A48411F36C0B80063DBF4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B6A48421F36C0B80063DBF4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7B6A485B1F36C0B90063DBF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		7B6A485C1F36C0B90063DBF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7B6A485E1F36C0B90063DBF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Building Good Mathematicians/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Building-Good-Mathematicians";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		7B6A485F1F36C0B90063DBF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Building Good Mathematicians/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Building-Good-Mathematicians";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		7B6A48611F36C0B90063DBF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Building Good MathematiciansTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Building-Good-MathematiciansTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Building Good Mathematicians.app/Building Good Mathematicians";
+			};
+			name = Debug;
+		};
+		7B6A48621F36C0B90063DBF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Building Good MathematiciansTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Building-Good-MathematiciansTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Building Good Mathematicians.app/Building Good Mathematicians";
+			};
+			name = Release;
+		};
+		7B6A48641F36C0B90063DBF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = "Building Good MathematiciansUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Building-Good-MathematiciansUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Building Good Mathematicians";
+			};
+			name = Debug;
+		};
+		7B6A48651F36C0B90063DBF4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = "Building Good MathematiciansUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Building-Good-MathematiciansUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Building Good Mathematicians";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7B6A48301F36C0B80063DBF4 /* Build configuration list for PBXProject "Building Good Mathematicians" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B6A485B1F36C0B90063DBF4 /* Debug */,
+				7B6A485C1F36C0B90063DBF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B6A485D1F36C0B90063DBF4 /* Build configuration list for PBXNativeTarget "Building Good Mathematicians" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B6A485E1F36C0B90063DBF4 /* Debug */,
+				7B6A485F1F36C0B90063DBF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7B6A48601F36C0B90063DBF4 /* Build configuration list for PBXNativeTarget "Building Good MathematiciansTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B6A48611F36C0B90063DBF4 /* Debug */,
+				7B6A48621F36C0B90063DBF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7B6A48631F36C0B90063DBF4 /* Build configuration list for PBXNativeTarget "Building Good MathematiciansUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B6A48641F36C0B90063DBF4 /* Debug */,
+				7B6A48651F36C0B90063DBF4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7B6A482D1F36C0B80063DBF4 /* Project object */;
+}
