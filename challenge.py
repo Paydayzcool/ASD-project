@@ -2,29 +2,7 @@ file = [i.strip().split() for i in open("results.txt").readlines()][1:]
 #exclude 1st line because its just what the individual numbers mean
 #Event No, Age Level, Gender, Event Name, Place, StuCode, Competitor_First, Competitor_Last, Team/House, Performance, Points
 print('working...')
-'''#Discus function. Returns a sorted list of entries
-def discus(f):
-    array = []
-    for j in f:
-        # NOTE: Some discus entry lengths are larger than 11 because of the Student Codes - They can have spaces.
-        # Callum why does that matter with the way that you're doing it? Also we can just ignore any disqualified students, they wont be getting any points.
-        if len(j) >= 11:
-            array.append((float(j[-2]),float(j[-1]),j[-5]+" "+j[-4]))
-        else:
-            array.append((float(j[-1]),"DSQ",j[-4]+" "+j[-3]))
-    return sorted(array)[::-1]
-#High Jump function. Returns a sorted list of entries DOESN'T WORK YET
-def high_jump(f):
-    array = []
-    for i in f:
-        if len(i) >= 12:
-            array.append((float(i[-2]),float(i[-1]),i[-5]+" "+i[-4]))
-        else:
-            array.append((float(i[-1]),"DSQ",i[-4]+" "+i[-3]))
-    return sorted(array)
-        
-#Ok Coen, I've got Discus "Sorted"
-'''
+
 def isDist(num):
     try:
         float(num)
@@ -35,26 +13,34 @@ def isDist(num):
 def timeToFloat(time):
     time = time[0:2] + time[3:]
     return(float(time))
-    
 
 #We can just have very general functions actually, theres no difference between the high and triple jump ones so why use multiple ones? Couldn't we use this one for all of the ones that you need a high score for?
 def high(f):
     array = []
 
     for i in f:
-        #if someone is disqualified it'll be their house which wont be a digit, int in output is place
-        if i[-2][0].isdigit():
+        #if someone is disqualified it'll be their house which wont be a digit
+        #I test for longer names then split student ids and then if both happened
+        if i[-2][0].isdigit() and i[-6][-2].isdigit() and i[-7].isdigit() and len(i[-9]!=1):
             array.append((float(i[-2]),i[-7],i[-5]+" "+i[-4]))
-    #if theres only one division we'll need it sorted properly
-    return sorted(array)[::-1]
+        else:
+            #gets out all of the 3 space names COUGH COUGH VON ALTENSTADT COUGH COUGH
+            if (not i[-6][-2].isdigit()) and len(i[-9])!=1:
+                array.append((float(i[-2]),i[-8],i[-6]+" "+i[-5]+" "+i[-4]))
+                       
+        #if theres only one division we'll need it sorted properly
+        return sorted(array)[::-1]
 
 #And this one for all the ones you need a low score for?
 def low(f):
     array = []
     for i in f:
-        #if someone is disqualified it'll be their house which isnt an int, int in output is place
-        if i[-2][0].isdigit():
-            array.append((timeToFloat(i[-2]),i[-7],i[-5]+" "+i[-4]))
+        if i[-2][0].isdigit() and i[-6][-2].isdigit() and i[-7].isdigit() and len(i[-9]!=1):
+            array.append((float(i[-2]),i[-7],i[-5]+" "+i[-4]))
+        else:
+            #gets out all of the 3 space names COUGH COUGH VON ALTENSTADT COUGH COUGH
+            if (not i[-6][-2].isdigit()) and len(i[-9])!=1:
+                array.append((float(i[-2]),i[-8],i[-6]+" "+i[-5]+" "+i[-4]))
     array.sort()
     return array
         
@@ -92,29 +78,6 @@ while i < l:
             results[age_level+event] = sorted(results[age_level+event])
         else:
             results[age_level+event] = low(array)   
-        
-    '''
-    if event.lower() == "discus":
-        if age_level+event in results.keys():
-            results[age_level+event].extend(discus(array))
-            results[age_level+event] = sorted(results[age_level+event])[::-1]
-        else:
-            results[age_level+event] = discus(array)
-            
-    elif event.lower() == "high":
-        if age_level+event in results.keys():
-            results[age_level+event].extend(high_jump(array))
-            results[age_level+event] = sorted(results[age_level+event])[::-1]
-        else:
-            results[age_level+event] = high_jump(array)
-            
-    elif event.lower() == "triple":
-        if age_level+event in results.keys():
-            results[age_level+event].extend(triple_jump(array))
-            results[age_level+event] = sorted(results[age_level + event])[::-1]
-        else:
-            results[age_level+event] = triple_jump(array)
-    '''
 
     number += 1
     array = []
@@ -143,7 +106,6 @@ for element, value in results.items():
     #The dictionary has seprate age groups which contain the students which are just dictionaries with their class in it
     #value = performance,place, name for the smaller indexes
     #in the big mess of indexes element[0:4] is the age group eg U/13 which is defined in the dictionary, value is one of dictionary definitions of the ordered pooled events and element[4:] is the event name.
-    #WIP
     if value[0][2] in students[element[0:4]].keys():
         students[element[0:4]][value[0][2]].addEvent((value[0][1],'place in',element[4:]))
         students[element[0:4]][value[0][2]].addPoints(10)
