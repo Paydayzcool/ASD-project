@@ -13,7 +13,6 @@ def discus(f):
         else:
             array.append((float(j[-1]),"DSQ",j[-4]+" "+j[-3]))
     return sorted(array)[::-1]
-
 #High Jump function. Returns a sorted list of entries DOESN'T WORK YET
 def high_jump(f):
     array = []
@@ -146,31 +145,31 @@ for element, value in results.items():
     #in the big mess of indexes element[0:4] is the age group eg U/13 which is defined in the dictionary, value is one of dictionary definitions of the ordered pooled events and element[4:] is the event name.
     #WIP
     if value[0][2] in students[element[0:4]].keys():
-        students[element[0:4]][value[2]].addEvent((value[1],'place in',element[4:]))
-        students[element[0:4]][value[2]].addPoints(10)
+        students[element[0:4]][value[0][2]].addEvent((value[0][1],'place in',element[4:]))
+        students[element[0:4]][value[0][2]].addPoints(10)
     else:
-        students[element[0:4]][value[0][2]] = student(value[0][2], (value[1],'place in',element[4:]), 10)
+        students[element[0:4]][value[0][2]] = student(value[0][2], (value[0][1],'place in',element[4:]), 10)
 
     if value[1][2] in students[element[0:4]].keys():
-        students[element[0:4]][value[2]].addEvent((value[1],'place in',element[4:]))
-        students[element[0:4]][value[2]].addPoints(7)
+        students[element[0:4]][value[1][2]].addEvent((value[1][1],'place in',element[4:]))
+        students[element[0:4]][value[1][2]].addPoints(7)
     else:
-        students[element[0:4]][value[2]] = student(value[0][2], (value[1],'place in',element[4:]), 7)
+        students[element[0:4]][value[1][2]] = student(value[1][2], (value[1][1],'place in',element[4:]), 7)
         
     if value[2][2] in students[element[0:4]].keys():
-        students[element[0:4]][value[2]].addEvent((value[1],'place in',element[4:]))
-        students[element[0:4]][value[2]].addPoints(5)
+        students[element[0:4]][value[2][2]].addEvent((value[2][1],'place in',element[4:]))
+        students[element[0:4]][value[2][2]].addPoints(5)
     else:
-        students[element[0:4]][value[2]] = student(value[0][2], (value[1],'place in',element[4:]), 5)
+        students[element[0:4]][value[2][2]] = student(value[2][2], (value[2][1],'place in',element[4:]), 5)
         
     if value[3][2] in students[element[0:4]].keys():
-        students[element[0:4]][value[2]].addEvent((value[1],'place in',element[4:]))
-        students[element[0:4]][value[2]].addPoints(3)
+        students[element[0:4]][value[3][2]].addEvent((value[3][1],'place in',element[4:]))
+        students[element[0:4]][value[3][2]].addPoints(3)
     else:
-        students[element[0:4]][value[2]] = student(value[0][2], (value[1],'place in',element[4:]), 3)
+        students[element[0:4]][value[3][2]] = student(value[3][2], (value[3][1],'place in',element[4:]), 3)
         
     if value[4][2] in students[element[0:4]].keys():
-        students[element[0:4]][value[2]].addEvent((value[1],'place in',element[4:]))
-        students[element[0:4]][value[2]].addPoints(1)
+        students[element[0:4]][value[4][2]].addEvent((value[4][1],'place in',element[4:]))
+        students[element[0:4]][value[4][2]].addPoints(1)
     else:
-        students[element[0:4]][value[2]] = student(value[0][2], (value[1],'place in',element[4:]), 1)
+        students[element[0:4]][value[4][2]] = student(value[0][2], (value[4][1],'place in',element[4:]), 1)
