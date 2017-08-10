@@ -1,24 +1,29 @@
-#making it non IT teacher proof
-try:
-    file = [i.strip().split() for i in open("results.txt").readlines()][1:]
-except:
-    print("There doesn't seem to be a results.txt document in the same file as this program. Make sure that the results are named results.txt with that spelling and .txt extension at the end as it needs to be a txt file for the program to work, an error will now occur and stop the program")
+import sys
+import os.path
 
-#exclude 1st line because its just what the individual numbers mean
-#Event No, Age Level, Gender, Event Name, Place, StuCode, Competitor_First, Competitor_Last, Team/House, Performance, Points
+#making it non IT teacher proof and blocking out the errors. Pretty neat trick!
+class DevNull:
+    def write(self, msg):
+        pass
+    
+class student:
+    def __init__(self, name, event, points, house):
+        self.name = name
+        self.events = [event]
+        self.points = points
+        self.house = house
+    def addEvent(self, event):
+        self.events.extend(event)
+    def addPoints(self, points):
+        self.points+=points
+
 def isDist(num):
     try:
         float(num)
         return True
     except:
         return False
-#the 3rd character is a : which won't be a float, I'm removing it
-def timeToFloat(time):
-    time = time[0:2] + time[3:]
-    return(float(time))
-    
 
-#We can just have very general functions actually, theres no difference between the high and triple jump ones so why use multiple ones? Couldn't we use this one for all of the ones that you need a high score for?
 def high(f):
     array = []
 
@@ -36,11 +41,20 @@ def low(f):
     for i in f:
         #if someone is disqualified it'll be their house which isnt an int, int in output is place
         if i[-2][0].isdigit() and i[-6][-2].isdigit():
-            array.append((timeToFloat(i[-2]),i[-7],i[-5]+" "+i[-4], i[-3]))
+            array.append((i[-2],i[-7],i[-5]+" "+i[-4], i[-3]))
             
     array.sort()
     return array
-        
+
+# PLEASE NOTE: IF ANY UNEXPECTED ERRORS OCCUR eg: NO OUTPUT, COMMENT THE LINE BELOW AND RUN THE PROGRAM AGAIN.
+sys.stderr = DevNull()
+
+if not os.path.isfile("results.txt"):
+    print("Please place a 'results.txt' file in the same folder as this program and it should work this time. ;)")
+    raise AssertionError
+
+file = [i.strip().split() for i in open("results.txt").readlines()][1:]
+#Event No, Age Level, Gender, Event Name, Place, StuCode, Competitor_First, Competitor_Last, Team/House, Performance, Points  
 
 array = []
 results = {}
@@ -78,17 +92,7 @@ while i < l:
 
     number += 1
     array = []
-
-class student:
-    def __init__(self, name, event, points, house):
-        self.name = name
-        self.events = [event]
-        self.points = points
-        self.house = house
-    def addEvent(self, event):
-        self.events.extend(event)
-    def addPoints(self, points):
-        self.points+=points
+        
 #all in the same dictionary makes it easy to put in
 students = {'U/13':{}, 'U/14':{}, 'U/15':{}, 'U/16':{}, 'U/17':{}, 'U/21':{}}
 #element is key and value is what value it stores, also this is how to loop over a dictionary if you want the values stored as well, otherwise you just go over the keys
@@ -98,6 +102,8 @@ for element, value in results.items():
     #The dictionary has seprate age groups which contain the students which are just dictionaries with their class in it
     #value = performance,place, name, house for the smaller indexes
     #in the big mess of indexes element[0:4] is the age group eg U/13 which is defined in the dictionary, value is one of dictionary definitions of the ordered pooled events and element[4:] is the event name.
+    
+    # Uhh, Coen, have you taken into account the fact that two or more people can earn the same points because they got the same times?
     if value[0][2] in students[element[0:4]].keys():
         students[element[0:4]][value[0][2]].addEvent([value[0][1],'in',element[4:]+'.'])
         students[element[0:4]][value[0][2]].addPoints(10)
@@ -134,12 +140,6 @@ for element, value in results.items():
         else:
             students[element[0:4]][value[i][2]] = student(value[i][2], [value[i][1],'in',element[4:]], 0, value[i][3])
 
-u13 = []
-u14 = []
-u15 = []
-u16 = []
-u17 = []
-u21 = []
 def niceEvents(events):
     output = events[0][0]+' '+events[0][1]+' '+events[0][2]+'.'
     for i in range(1,len(events)):
@@ -161,6 +161,7 @@ def getTop(ageGroup):
         print(output[i][1]+',', students[ageGroup][output[i][1]].house+',', output[i][0], "Points")
         
     print(30*'=')
+print(30*"=")
 u13 = getTop('U/13')
 u14 = getTop('U/14')
 u15 = getTop('U/15')
