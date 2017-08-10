@@ -10,4 +10,20 @@ Eg: v1.0-Ca (version 1, made by Callum)
 
 Please note that any design documents or planning are not to be put in this repository.
 
-If you want to download any of the files, please open the file in the browser and go to https://minhaskamal.github.io/DownGit/ to download the file.
+The best way to download the files is to clone this repository into your desktop using your terminal.
+
+1. cd desktop
+2. In your browser, click the green button that says "Clone or download" and a url will appear. This url is imoortant so please copy it.
+3. git clone <url>
+4. This repository's contents will now be on your desktop.
+
+To receive updates for the repository:
+
+1. Change directory back to this repository
+2. git pull
+
+To make changes using the terminal:
+
+1. Save the new file in the repository directory
+2. git commit -m "<message>"
+3. git push
