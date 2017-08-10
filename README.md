@@ -14,7 +14,7 @@ The best way to download the files is to clone this repository into your desktop
 
 1. cd desktop
 2. In your browser, click the green button that says "Clone or download" and a url will appear. This url is imoortant so please copy it.
-3. git clone <url>
+3. git clone [url]
 4. This repository's contents will now be on your desktop.
 
 To receive updates for the repository:
@@ -25,5 +25,5 @@ To receive updates for the repository:
 To make changes using the terminal:
 
 1. Save the new file in the repository directory
-2. git commit -m "<message>"
+2. git commit -m "[message]"
 3. git push
