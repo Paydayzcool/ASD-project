@@ -47,6 +47,7 @@ def low(f):
     return array
 
 # PLEASE NOTE: IF ANY UNEXPECTED ERRORS OCCUR eg: NO OUTPUT, COMMENT THE LINE BELOW AND RUN THE PROGRAM AGAIN FOR DEBUGGING.
+# Why not move this into if statement below, if there's no output they'll be very confused while if there's an error they'll get an IT guy or us
 sys.stderr = DevNull()
 
 if not os.path.isfile("results.txt"):
@@ -55,6 +56,22 @@ if not os.path.isfile("results.txt"):
 
 file = [i.strip().split() for i in open("results.txt").readlines()][1:]
 #Event No, Age Level, Gender, Event Name, Place, StuCode, Competitor_First, Competitor_Last, Team/House, Performance, Points  
+
+#sorting out extra space edge cases
+for line in file:
+    #gets rid of relays, will be place instead of last name and any disqualifications
+    if line[-4].isdigit() or not line[-2][0].isdigit():
+        continue
+    #tests for any longer names
+    if not line[-6][-2].isdigit():
+        line[-5] = line[-5] + line[-4]
+        line.pop(-4)
+    #should be place, if not their student id has a space in it
+    if not line[-7].isdigit():
+        line[-7] = line[-7]+' '+line[-6]
+        line.pop(-6)
+        
+
 
 array = []
 results = {}
@@ -104,6 +121,7 @@ for element, value in results.items():
     #in the big mess of indexes element[0:4] is the age group eg U/13 which is defined in the dictionary, value is one of dictionary definitions of the ordered pooled events and element[4:] is the event name.
     
     # Uhh, Coen, have you taken into account the fact that two or more people can earn the same points because they got the same times?
+    #Lovely more edge cases _-_
     if value[0][2] in students[element[0:4]].keys():
         students[element[0:4]][value[0][2]].addEvent([value[0][1],'in',element[4:]+'.'])
         students[element[0:4]][value[0][2]].addPoints(10)
@@ -145,7 +163,7 @@ def niceEvents(events):
     for i in range(1,len(events)):
         output = output+' '+events[i]
     return output
-    
+
 def getTop(ageGroup):
     output = []
     for name, data in students[ageGroup].items():
@@ -153,13 +171,23 @@ def getTop(ageGroup):
     output.sort()
     #sort puts it into an ascending order
     output = output[::-1]
+
+    #checks if any people got the same amount of points
+    upTo = 4
+    buffer = 0
+    while buffer <= upTo:
+        #There can be shared places
+        if output[buffer][0] == output[buffer+1][0]:
+            upTo += 1
+        buffer += 1
+
     print('Age Group =', ageGroup)
-    print(output[0][1],'House='+ students[ageGroup][output[0][1]].house+',', str(output[0][0]), "Points")
+    print(output[0][1],'House='+ students[ageGroup][output[0][1]].house+',', str(output[0][0]), "Points;")
     print(niceEvents(students[ageGroup][output[0][1]].events))
     #not inclusive of final element
-    for i in range(1,5):
-        print(output[i][1]+',', students[ageGroup][output[i][1]].house+',', output[i][0], "Points")
-        
+    for i in range(1,upTo+1):
+        print(output[i][1]+',', students[ageGroup][output[i][1]].house+',', output[i][0], "Points;")
+            
     print(30*'=')
 print(30*"=")
 u13 = getTop('U/13')
