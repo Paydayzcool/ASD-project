@@ -1,7 +1,7 @@
 import sys
 import os.path
 
-print("If there's no/partial results an error occured somewhere... Comment line 51 if you want to see the error if you're the person fixing this")
+print("If there's no/partial results or an error occured somewhere, please comment line 51 for further details.")
 #making it non IT teacher proof and blocking out the errors. Pretty neat trick!
 class DevNull:
     def write(self, msg):
@@ -47,7 +47,7 @@ def low(f):
     array.sort()
     return array
 
-# PLEASE NOTE: IF ANY UNEXPECTED ERRORS OCCUR eg: NO OUTPUT, COMMENT THE LINE BELOW AND RUN THE PROGRAM AGAIN FOR DEBUGGING.
+# LINE 51 JUST BELOW: IF ANY UNEXPECTED ERRORS OCCUR eg: PARTIAL/NO OUTPUT, COMMENT THE LINE BELOW AND RUN THE PROGRAM AGAIN FOR DEBUGGING.
 sys.stderr = DevNull()
 
 if not os.path.isfile("results.txt"):
@@ -70,8 +70,6 @@ for line in file:
     if not line[-7].isdigit():
         line[-7] = line[-7]+' '+line[-6]
         line.pop(-6)
-        
-
 
 array = []
 results = {}
