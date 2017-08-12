@@ -1,6 +1,7 @@
 import sys
 import os.path
 
+print("If there's no/partial results an error occured somewhere... Comment line 51 if you want to see the error if you're the person fixing this")
 #making it non IT teacher proof and blocking out the errors. Pretty neat trick!
 class DevNull:
     def write(self, msg):
@@ -23,7 +24,7 @@ def isDist(num):
         return True
     except:
         return False
-
+#This one for all the ones you want a high score for
 def high(f):
     array = []
 
@@ -35,7 +36,7 @@ def high(f):
     #if theres only one division we'll need it sorted properly
     return sorted(array)[::-1]
 
-#And this one for all the ones you need a low score for?
+#Thos one for all the ones you want a low score
 def low(f):
     array = []
     for i in f:
@@ -47,7 +48,6 @@ def low(f):
     return array
 
 # PLEASE NOTE: IF ANY UNEXPECTED ERRORS OCCUR eg: NO OUTPUT, COMMENT THE LINE BELOW AND RUN THE PROGRAM AGAIN FOR DEBUGGING.
-# Why not move this into if statement below, if there's no output they'll be very confused while if there's an error they'll get an IT guy or us
 sys.stderr = DevNull()
 
 if not os.path.isfile("results.txt"):
@@ -120,43 +120,43 @@ for element, value in results.items():
     #value = performance,place, name, house for the smaller indexes
     #in the big mess of indexes element[0:4] is the age group eg U/13 which is defined in the dictionary, value is one of dictionary definitions of the ordered pooled events and element[4:] is the event name.
     
-    # Uhh, Coen, have you taken into account the fact that two or more people can earn the same points because they got the same times?
-    #Lovely more edge cases _-_
-    if value[0][2] in students[element[0:4]].keys():
-        students[element[0:4]][value[0][2]].addEvent([value[0][1],'in',element[4:]+'.'])
-        students[element[0:4]][value[0][2]].addPoints(10)
-    else:
-        students[element[0:4]][value[0][2]] = student(value[0][2], [value[0][1],'in',element[4:]], 10, value[0][3])
-
-    if value[1][2] in students[element[0:4]].keys():
-        students[element[0:4]][value[1][2]].addEvent([value[1][1],'in',element[4:]+'.'])
-        students[element[0:4]][value[1][2]].addPoints(7)
-    else:
-        students[element[0:4]][value[1][2]] = student(value[1][2], [value[1][1],'in',element[4:]], 7, value[1][3])
-        
-    if value[2][2] in students[element[0:4]].keys():
-        students[element[0:4]][value[2][2]].addEvent([value[2][1],'in',element[4:]+'.'])
-        students[element[0:4]][value[2][2]].addPoints(5)
-    else:
-        students[element[0:4]][value[2][2]] = student(value[2][2], [value[2][1],'in',element[4:]], 5, value[2][3])
-        
-    if value[3][2] in students[element[0:4]].keys():
-        students[element[0:4]][value[3][2]].addEvent([value[3][1],'in',element[4:]+'.'])
-        students[element[0:4]][value[3][2]].addPoints(3)
-    else:
-        students[element[0:4]][value[3][2]] = student(value[3][2], [value[3][1],'in',element[4:]], 3, value[3][3])
-        
-    if value[4][2] in students[element[0:4]].keys():
-        students[element[0:4]][value[4][2]].addEvent([value[4][1],'in',element[4:]+'.'])
-        students[element[0:4]][value[4][2]].addPoints(1)
-    else:
-        students[element[0:4]][value[4][2]] = student(value[4][2], [value[4][1],'in',element[4:]], 1, value[4][3])
+    double_ups = []
+    for i in range(5):
+        if value[i][1] == value[i+1][1]:
+            double_ups.append(i)
+    
+    points = {1: 10, 2:7, 3:5, 4:3, 5:1}
+    place = 1
+    for i in range(5):
+        if i-1 not in double_ups:
+            place = i+1
+            if value[i][2] in students[element[0:4]].keys():
+                students[element[0:4]][value[i][2]].addEvent([value[i][1],'in',element[4:]+'.'])
+                students[element[0:4]][value[i][2]].addPoints(points[place])
+            else:
+                students[element[0:4]][value[i][2]] = student(value[i][2], [value[i][1],'in',element[4:]], points[place], value[i][3])
+        #if i-1 is in double_ups it means that it's the same place as the person before them
+        else:
+            if value[i][2] in students[element[0:4]].keys():
+                students[element[0:4]][value[i][2]].addEvent([value[i][1],'in',element[4:]+'.'])
+                students[element[0:4]][value[i][2]].addPoints(points[place])
+            else:
+                students[element[0:4]][value[i][2]] = student(value[i][2], [value[i][1],'in',element[4:]], points[place], value[i][3])
+    
     #assigning the rest of the events that don't give points, we still need them
     for i in range(5,len(value)):
         if value[i][2] in students[element[0:4]].keys():
             students[element[0:4]][value[i][2]].addEvent([value[i][1], 'in ',element[4:]+'.'])
         else:
             students[element[0:4]][value[i][2]] = student(value[i][2], [value[i][1],'in',element[4:]], 0, value[i][3])
+
+    #above loop won't catch people that have equal 5th
+    upTo = 5
+    while value[upTo][0] == value[upTo-1][0]:
+        students[element[0:4]][value[upTo][2]].addEvent([value[upTo][1],'in',element[4:]+'.'])
+        students[element[0:4]][value[upTo][2]].addPoints(1)
+        upTo += 1
+        
 
 def niceEvents(events):
     output = events[0][0]+' '+events[0][1]+' '+events[0][2]+'.'
