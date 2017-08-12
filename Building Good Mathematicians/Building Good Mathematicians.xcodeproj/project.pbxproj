@@ -507,6 +507,7 @@
 				7B6A485F1F36C0B90063DBF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7B6A48601F36C0B90063DBF4 /* Build configuration list for PBXNativeTarget "Building Good MathematiciansTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +516,7 @@
 				7B6A48621F36C0B90063DBF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7B6A48631F36C0B90063DBF4 /* Build configuration list for PBXNativeTarget "Building Good MathematiciansUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +525,7 @@
 				7B6A48651F36C0B90063DBF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

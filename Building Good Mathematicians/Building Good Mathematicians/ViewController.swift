@@ -13,7 +13,9 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBOutlet weak var loginButton: UIButton!
+    @IBAction func BTNLogin(_ sender: Any) {
+        performSegue(withIdentifier: "LoggingIn", sender: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
