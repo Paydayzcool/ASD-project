@@ -8,8 +8,12 @@ Eg: v1.0-Ca (version 1, made by Callum)
     v1.4-Co (version 1.4 made by Coen)
     v1.7-J (version 1.7 made by Jonathan)
 
-Please note that any design documents or planning are not to be put in this repository.
+Please note that any design documents are not to be put in this repository.
+------------------------------------------------------------------------------------------------------------------------------
+There is a "Projects" tab above all the files which we can use to add any plans to them. If you are coming up with anything, please post your plans there.
 
+Also, there is a special column for special stuff which would also in my opinion come in handy. ;)
+------------------------------------------------------------------------------------------------------------------------------
 The best way to download the files is to clone this repository into your desktop using your terminal.
 
 1. cd desktop
