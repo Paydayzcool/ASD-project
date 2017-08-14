@@ -14,6 +14,8 @@
 		7B6A48431F36C0B80063DBF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6A48411F36C0B80063DBF4 /* LaunchScreen.storyboard */; };
 		7B6A484E1F36C0B90063DBF4 /* Building_Good_MathematiciansTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6A484D1F36C0B90063DBF4 /* Building_Good_MathematiciansTests.swift */; };
 		7B6A48591F36C0B90063DBF4 /* Building_Good_MathematiciansUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6A48581F36C0B90063DBF4 /* Building_Good_MathematiciansUITests.swift */; };
+		7B6A48671F41DCF30063DBF4 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6A48661F41DCF30063DBF4 /* Dashboard.swift */; };
+		7B6A48691F41E5C60063DBF4 /* RealDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6A48681F41E5C60063DBF4 /* RealDashboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		7B6A48541F36C0B90063DBF4 /* Building Good MathematiciansUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Building Good MathematiciansUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B6A48581F36C0B90063DBF4 /* Building_Good_MathematiciansUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building_Good_MathematiciansUITests.swift; sourceTree = "<group>"; };
 		7B6A485A1F36C0B90063DBF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B6A48661F41DCF30063DBF4 /* Dashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
+		7B6A48681F41E5C60063DBF4 /* RealDashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealDashboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,9 +104,11 @@
 				7B6A48381F36C0B80063DBF4 /* AppDelegate.swift */,
 				7B6A483A1F36C0B80063DBF4 /* ViewController.swift */,
 				7B6A483C1F36C0B80063DBF4 /* Main.storyboard */,
+				7B6A48681F41E5C60063DBF4 /* RealDashboard.swift */,
 				7B6A483F1F36C0B80063DBF4 /* Assets.xcassets */,
 				7B6A48411F36C0B80063DBF4 /* LaunchScreen.storyboard */,
 				7B6A48441F36C0B80063DBF4 /* Info.plist */,
+				7B6A48661F41DCF30063DBF4 /* Dashboard.swift */,
 			);
 			path = "Building Good Mathematicians";
 			sourceTree = "<group>";
@@ -260,6 +266,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B6A483B1F36C0B80063DBF4 /* ViewController.swift in Sources */,
+				7B6A48671F41DCF30063DBF4 /* Dashboard.swift in Sources */,
+				7B6A48691F41E5C60063DBF4 /* RealDashboard.swift in Sources */,
 				7B6A48391F36C0B80063DBF4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
