@@ -10,16 +10,15 @@ import UIKit
 import Foundation
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    private var data: [String] = []
+    var data: [String] = ["1","2","3","4"]
+    var extras: [String] = ["A","B","C","D"]
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        for i in 0...1000 {
-            data.append("\(i)")
-        }
+        tableView.delegate = self
         tableView.dataSource = self
         
     }
@@ -34,15 +33,38 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return data.count
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier") as! CustomTableViewCell //1.
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier") as! CustomTableViewCell
         
-        let text = data[indexPath.row] //2.
+        let text = data[indexPath.row]
         
-        cell.label .text = text //3.
+        cell.label.text = text
         
-        return cell //4.
+        if indexPath.row % 2 == 0 {
+            cell.contentView.backgroundColor = UIColor.red
+        } else {
+            cell.contentView.backgroundColor = UIColor.lightGray
+        }
+        
+        return cell
+    }
+    
+    // This just checks whether the user has selected the row. Or whatever...
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        /*let alertController = UIAlertController(title: "Hint",message: "You have selected row \(indexPath.row)",preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        
+        alertController.addAction(alertAction)
+        
+        present(alertController, animated:true, completion:nil)*/
+        
+        let vcName = extras[indexPath.row]
+        let viewController = storyboard?.instantiateViewController(withIdentifier: vcName)
+        
+        self.navigationController?.pushViewController(viewController!, animated: true)
+        
     }
 
 }
