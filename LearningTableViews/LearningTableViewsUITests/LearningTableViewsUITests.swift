@@ -1,14 +1,14 @@
 //
-//  Building_Good_MathematiciansUITests.swift
-//  Building Good MathematiciansUITests
+//  LearningTableViewsUITests.swift
+//  LearningTableViewsUITests
 //
-//  Created by Eu Guan Koh on 6/8/17.
-//  Copyright © 2017 sqrt(i). All rights reserved.
+//  Created by Callum Koh on 22/8/17.
+//  Copyright © 2017 pop("Goes the weasel"). All rights reserved.
 //
 
 import XCTest
 
-class Building_Good_MathematiciansUITests: XCTestCase {
+class LearningTableViewsUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

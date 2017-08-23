@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  Building Good Mathematicians
+//  LearningTableViews
 //
-//  Created by Eu Guan Koh on 6/8/17.
-//  Copyright © 2017 sqrt(i). All rights reserved.
+//  Created by Callum Koh on 22/8/17.
+//  Copyright © 2017 pop("Goes the weasel"). All rights reserved.
 //
 
 import UIKit
