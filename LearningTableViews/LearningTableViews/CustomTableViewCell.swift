@@ -9,8 +9,10 @@
 import UIKit
 
 class CustomTableViewCell: UITableViewCell {
-
+    
+    // This outlet makes it easier for you to change the title of the tableView cell.
     @IBOutlet weak var label: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
