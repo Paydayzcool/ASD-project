@@ -1,3 +1,0 @@
-Hello, I am a test file!
-
-I was put here to prove that you can download this repository and update it using terminal!
