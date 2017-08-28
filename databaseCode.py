@@ -30,8 +30,13 @@ def newTeacher(ID, fname, lname, classes):
 
 def newTask(Class,questions,answers,name):
         try:
-        cur.execute('INSERT INTO Tasks VALUES(?,?,?)',(questions,answers))
-    
+        cur.execute('INSERT INTO Tasks VALUES(?,?,?,?)',(Class,name,questions,answers))
+        cur.execute('SELECT Student FROM ReferenceS WHERE Class =',Class)
+        data = cur.fetchall()
+        #Need to get data
+        for student in data:
+            cur.execute('INSERT INTO Completion VALUES(?,?,?)',(student,ID,'N'))
+            
         con.commit()                        
     except:
         print('error newTask')
