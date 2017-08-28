@@ -17,7 +17,7 @@ def newStudent(ID,fname,lname,classes):
 
 
 def newTeacher(ID, fname, lname, classes):
-        try:
+    try:
         cur.execute('INSERT INTO Teachers VALUES(?,?,?)',(ID,fname,lname))
         classes = classes.split()
         for i in classes:
@@ -29,7 +29,7 @@ def newTeacher(ID, fname, lname, classes):
         con.rollback()
 
 def newTask(Class,questions,answers,name):
-        try:
+    try:
         cur.execute('INSERT INTO Tasks VALUES(?,?,?,?)',(Class,name,questions,answers))
         cur.execute('SELECT Student FROM ReferenceS WHERE Class =',Class)
         data = cur.fetchall()
