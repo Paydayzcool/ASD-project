@@ -28,6 +28,14 @@ def newTeacher(ID, fname, lname, classes):
         print('error newTeacher')
         con.rollback()
 
-
+def newTask(Class,questions,answers,name):
+        try:
+        cur.execute('INSERT INTO Tasks VALUES(?,?,?)',(questions,answers))
+    
+        con.commit()                        
+    except:
+        print('error newTask')
+        con.rollback()
+    
 con.commit()
 con.close()
