@@ -1,20 +1,16 @@
-from sqlite3 import *
-con = connect('project.db')
+import sqlite3
+con = sqlite3.connect('project.db')
 cur = con.cursor()
-
 def newStudent(ID,fname,lname,classes):
-    #try:
-    cur.execute('INSERT INTO Students VALUES(?,?,?)',(ID,fname,lname))
-    classes = classes.split()
-    for i in classes:
-        print(ID,i)
-#       cur.execute('INSERT INTO ReferenceS (Student, Class) VALUES (?,?)',(ID, i))
-        print('INSERT INTO ReferenceS (Student, Class) VALUES (' + str(ID) + ',"' + i + '")')
-        cur.execute('INSERT INTO ReferenceS VALUES (' + str(ID) + ',"' + i + '")')
-    con.commit()                        
-    """except:
+    try:
+        cur.execute('INSERT INTO Students VALUES(?,?,?)',(ID,fname,lname))
+        classes = classes.split()
+        for i in classes:
+            cur.execute('INSERT INTO ReferenceStud (Student, Class) VALUES (?,?)',(ID, i))
+        con.commit()                       
+    except:
         print('error newStudent')
-        con.rollback()"""
+        con.rollback()
 
 
 def newTeacher(ID, fname, lname, classes):
@@ -30,25 +26,27 @@ def newTeacher(ID, fname, lname, classes):
         con.rollback()
 
 def newTask(Class,questions,answers,name):
-    try:
-        cur.execute('SELECT TaskID FROM TASKS WHERE Questions =',questions,'AND Answers =',answers)
+    #try:
+        cur.execute('SELECT TaskID FROM TASKS WHERE Questions ="'+questions+'" AND Answers ="'+answers+'"')
         data = cur.fetchall()
-        if data.len() == 0:
-            cur.execute('INSERT INTO Tasks VALUES(?,?,?,?)',(questions,answers,name))
+        if len(data) == 0:
+            cur.execute('INSERT INTO Tasks(Questions,Answers,Name) VALUES(?,?,?)',(questions,answers,name))
         
-        cur.execute('SELECT Student FROM ReferenceS WHERE Class =',Class)
+        cur.execute('SELECT Student FROM ReferenceStud WHERE Class = "'+Class + '"')
         data = cur.fetchall()
+        data = list(data[0])
         print(data)
-        cur.execute('SELECT TaskID FROM Tasks WHERE Questions =',questions,'AND', 'Answers =',answers)
+        cur.execute('SELECT TaskID FROM Tasks WHERE Questions = "'+questions+'" AND Answers = "'+answers+'"')
         ID = cur.fetchall()
+        ID = list(ID[0])
         print(ID)
-        for student in data:
-            cur.execute('INSERT INTO Completion VALUES(?,?,?)',(student,ID,'N'))
+        for i in range(len(data)):
+            cur.execute('INSERT INTO Completion VALUES(?,?,?)',(data[i],ID[i],'N'))
             
         con.commit()                        
-    except:
+        '''except:
         print('error newTask')
-        con.rollback()
+        con.rollback()'''
 
 def getTasks(ID, Class):
     try:
@@ -56,7 +54,7 @@ def getTasks(ID, Class):
         taskIDs = cur.fetchall()
         tasks = []
         for task in taskIDs:
-            cur.execute('SELECT Questions,Answers FROM Tasks WHERE ID =',task)
+            cur.execute('SELECT name FROM Tasks WHERE ID =',task)
             tasks.append(cur.fetchall())
         return(tasks)
     except:
@@ -79,6 +77,6 @@ def complete(student,task):
     except:
         print('error complete')
         con.rollback()
-'''newStudent(1083698, 'Coen', 'Heyning', '10MSA02') 
-con.commit()'''
+newTask('10MSA02', '10+1 11+2', '11 13', 'Basic Addition')
+con.commit()
 con.close()
