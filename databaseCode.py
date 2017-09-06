@@ -30,32 +30,35 @@ def newTask(Class,questions,answers,name):
         cur.execute('SELECT TaskID FROM TASKS WHERE Questions ="'+questions+'" AND Answers ="'+answers+'"')
         data = cur.fetchall()
         if len(data) == 0:
-            cur.execute('INSERT INTO Tasks(Questions,Answers,Name) VALUES(?,?,?)',(questions,answers,name))
+            cur.execute('INSERT INTO Tasks(Questions,Answers,Name, Classes) VALUES(?,?)',(questions,answers))
         
         cur.execute('SELECT Student FROM ReferenceStud WHERE Class = "'+Class + '"')
         data = cur.fetchall()
-        data = list(data[0])
-        print(data)
+        for i in range(len(data)):
+            data[i] = data[i][0]
         cur.execute('SELECT TaskID FROM Tasks WHERE Questions = "'+questions+'" AND Answers = "'+answers+'"')
         ID = cur.fetchall()
-        ID = list(ID[0])
-        print(ID)
+        ID = int(ID[0][0])
         for i in range(len(data)):
-            cur.execute('INSERT INTO Completion VALUES(?,?,?)',(data[i],ID[i],'N'))
-            
+            cur.execute('INSERT INTO Completion VALUES(?,?,?)',(data[i],ID,'N'))
+                    
+        cur.execute('INSERT INTO refTasks VALUES(?,?,?)',(ID,Class,name))
         con.commit()                        
         '''except:
         print('error newTask')
         con.rollback()'''
 
-def getTasks(ID, Class):
+def getTasks(ID):
     try:
         cur.execute('SELECT ID FROM Completion WHERE student =',ID)
         taskIDs = cur.fetchall()
+        for i in range(len(taskIDs)):
+            taskIDs[i] = taskIDs[i][0]
+
         tasks = []
         for task in taskIDs:
             cur.execute('SELECT name FROM Tasks WHERE ID =',task)
-            tasks.append(cur.fetchall())
+            data = cur.fetchall()
         return(tasks)
     except:
         print('error getTasks')
@@ -77,6 +80,6 @@ def complete(student,task):
     except:
         print('error complete')
         con.rollback()
-newTask('10MSA02', '10+1 11+2', '11 13', 'Basic Addition')
+newTask('10MSA03', '10+1 11+2', '11 13', 'Basic Addition')
 con.commit()
 con.close()
