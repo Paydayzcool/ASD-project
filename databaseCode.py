@@ -1,16 +1,24 @@
 import sqlite3
 con = sqlite3.connect('project.db')
 cur = con.cursor()
+def niceData(data):
+    outData
+    for i in range(len(data)):
+        outData[i].append(data[i][0])
+    return(outData)
+    
 def newStudent(ID,fname,lname,classes):
     try:
         cur.execute('INSERT INTO Students VALUES(?,?,?)',(ID,fname,lname))
         classes = classes.split()
         for i in classes:
             cur.execute('INSERT INTO ReferenceStud (Student, Class) VALUES (?,?)',(ID, i))
-        con.commit()                       
+        con.commit()
+        return('success')
     except:
         print('error newStudent')
         con.rollback()
+        return('error')
 
 
 def newTeacher(ID, fname, lname, classes):
@@ -20,13 +28,15 @@ def newTeacher(ID, fname, lname, classes):
         for i in classes:
             cur.execute('INSERT INTO ReferenceT VALUES(?,?)', (ID, i))
     
-        con.commit()                        
+        con.commit()
+        return('success')
     except:
         print('error newTeacher')
         con.rollback()
+        return('error')
 
 def newTask(Class,questions,answers,name):
-    #try:
+    try:
         cur.execute('SELECT TaskID FROM TASKS WHERE Questions ="'+questions+'" AND Answers ="'+answers+'"')
         data = cur.fetchall()
         if len(data) == 0:
@@ -34,35 +44,37 @@ def newTask(Class,questions,answers,name):
         
         cur.execute('SELECT Student FROM ReferenceStud WHERE Class = "'+Class + '"')
         data = cur.fetchall()
-        for i in range(len(data)):
-            data[i] = data[i][0]
+        data = niceData(data)
         cur.execute('SELECT TaskID FROM Tasks WHERE Questions = "'+questions+'" AND Answers = "'+answers+'"')
         ID = cur.fetchall()
         ID = int(ID[0][0])
         for i in range(len(data)):
-            cur.execute('INSERT INTO Completion VALUES(?,?,?)',(data[i],ID,'N'))
+            cur.execute('INSERT INTO Completion VALUES(?,?,?)',(ID,data[i],'N'))
                     
         cur.execute('INSERT INTO refTasks VALUES(?,?,?)',(ID,Class,name))
-        con.commit()                        
-        '''except:
+        con.commit()
+        return('success')
+    
+    except:
         print('error newTask')
-        con.rollback()'''
+        con.rollback()
+        return(error)
 
 def getTasks(ID):
     try:
         cur.execute('SELECT ID FROM Completion WHERE student =',ID)
-        taskIDs = cur.fetchall()
-        for i in range(len(taskIDs)):
-            taskIDs[i] = taskIDs[i][0]
-
+        data = cur.fetchall()
+        data = niceData(data)
         tasks = []
-        for task in taskIDs:
-            cur.execute('SELECT name FROM Tasks WHERE ID =',task)
-            data = cur.fetchall()
+        for i in data:
+            cur.execute('SELECT Name FROM Tasks WHERE TaskID = '+i)
+            temp = cur.fetchall()
+            tasks.append(temp[0][0])
         return(tasks)
     except:
         print('error getTasks')
         con.rollback()
+        return('error')
 
 def getStudents(Class):
     try:
@@ -80,6 +92,5 @@ def complete(student,task):
     except:
         print('error complete')
         con.rollback()
-newTask('10MSA03', '10+1 11+2', '11 13', 'Basic Addition')
 con.commit()
 con.close()
