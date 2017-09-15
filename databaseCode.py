@@ -1,11 +1,17 @@
+#!/usr/bin/python3
 import sqlite3
+print("Content-type: text\n")
+import cgi
+import cgitb; cgitb.enable()
+
+form = cgi.FieldStorage()
+
 con = sqlite3.connect('project.db')
 cur = con.cursor()
+print('a')
+
 def niceData(data):
-    outData = []
-    for i in range(len(data)):
-        outData.append(data[i][0])
-    return(outData)
+    return(list(data[0]))
     
 def newStudent(ID,fname,lname,classes):
     try:
@@ -14,11 +20,11 @@ def newStudent(ID,fname,lname,classes):
         for i in classes:
             cur.execute('INSERT INTO ReferenceStud (Student, Class) VALUES (?,?)',(ID, i))
         con.commit()
-        return('success')
+        return(True)
     except:
         print('error newStudent')
         con.rollback()
-        return('error')
+        return(False)
 
 
 def newTeacher(ID, fname, lname, classes):
@@ -27,13 +33,13 @@ def newTeacher(ID, fname, lname, classes):
         classes = classes.split()
         for i in classes:
             cur.execute('INSERT INTO ReferenceT VALUES(?,?)', (ID, i))
-    
         con.commit()
-        return('success')
+        return(True)
     except:
         print('error newTeacher')
         con.rollback()
-        return('error')
+        con.close()
+        return(False)
 
 def newTask(Class,questions,answers,name):
     try:
@@ -49,35 +55,33 @@ def newTask(Class,questions,answers,name):
         ID = cur.fetchall()
         ID = int(ID[0][0])
         for i in range(len(data)):
-            cur.execute('INSERT INTO Completion VALUES(?,?,?)',(ID,data[i],'N'))
-                    
+            cur.execute('INSERT INTO Completion VALUES(?,?,?)',(ID,data[i],'N'))                   
         cur.execute('INSERT INTO refTasks VALUES(?,?,?)',(ID,Class,name))
         con.commit()
-        return('success')
-    
+        return(True)
     except:
         print('error newTask')
         con.rollback()
-        return(error)
+        con.close()
+        return(False)
 
 def getTasks(ID):
     try:
-        print('SELECT Task FROM Completion WHERE Student =',ID)
         values = { "ID": ID }
         cur.execute('SELECT Task FROM Completion WHERE Student=:ID', values)
         data = cur.fetchall()
         data = niceData(data)
         tasks = []
         for i in data:
-            cur.execute('SELECT Name FROM Tasks WHERE TaskID = '+i)
+            cur.execute('SELECT Name FROM Tasks WHERE TaskID = '+str(i))
             temp = cur.fetchall()
             tasks.append(temp[0][0])
         return(tasks,data)
-        
     except:
         print('error getTasks')
         con.rollback()
-        return('error')
+        con.close()
+        return(False)
 
 def getStudents(Class):
     try:
@@ -88,6 +92,8 @@ def getStudents(Class):
     except:
         print('Error getStudents')
         con.rollback()
+        con.close()
+        return('error')
 
 def complete(student,task):
     try:
@@ -97,11 +103,23 @@ def complete(student,task):
     except:
         print('error complete')
         con.rollback()
+        con.close()
         return(False)
 
 def getTask(ID):
     try:
-
+        cur.execute('SELECT questions,answers FROM Tasks WHERE TaskID ='+str(ID))
+        data = cur.fetchall()
+        print(data)
+        data = niceData(data)
+        return(data)
     except:
-con.commit()
+        print('error getTask')
+        con.rollback()
+        con.close()
+        return(False)
+
+    
+if form['ID'].value == 'a':
+    pass
 con.close()
