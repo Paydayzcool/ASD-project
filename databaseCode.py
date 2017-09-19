@@ -125,11 +125,15 @@ def getTask(ID):
 if form['Function'].value == 'NStudent':
     newStudent(int(form['ID'].value), form['fname'].value, form['lname'.value], form['classes'].value)
 elif form['Function'].value == 'NTeacher':
-	pass
+	newTeacher(form['ID'].value, form['fname'].value, form['lname'].value, form['classes'].value)
 elif form['Function'].value == 'NTask':
-	pass
+	newTask(form['Class'].value,form['Questions'].value,form['Answers'].value,form['name'].value)
 elif form['Function'].value == 'GTasks':
 	pass
 elif form['Function'].value == 'GStudents':
 	pass
+elif form['Function'].value == 'Complete':
+    pass
+elif form['Function'].value == 'GTask':
+    pass
 con.close()
