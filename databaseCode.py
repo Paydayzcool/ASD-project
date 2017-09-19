@@ -9,6 +9,8 @@ form = cgi.FieldStorage()
 con = sqlite3.connect('project.db')
 cur = con.cursor()
 print('a')
+print(form['Function'].value)
+print(form['test'].value)
 
 def niceData(data):
     return(list(data[0]))
@@ -120,6 +122,14 @@ def getTask(ID):
         return(False)
 
     
-if form['ID'].value == 'a':
-    pass
+if form['Function'].value == 'NStudent':
+    newStudent(int(form['ID'].value), form['fname'].value, form['lname'.value], form['classes'].value)
+elif form['Function'].value == 'NTeacher':
+	pass
+elif form['Function'].value == 'NTask':
+	pass
+elif form['Function'].value == 'GTasks':
+	pass
+elif form['Function'].value == 'GStudents':
+	pass
 con.close()
