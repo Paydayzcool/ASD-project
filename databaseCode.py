@@ -10,7 +10,6 @@ con = sqlite3.connect('project.db')
 cur = con.cursor()
 print('a')
 print(form['Function'].value)
-print(form['test'].value)
 
 def niceData(data):
     return(list(data[0]))
@@ -123,17 +122,17 @@ def getTask(ID):
 
     
 if form['Function'].value == 'NStudent':
-    newStudent(int(form['ID'].value), form['fname'].value, form['lname'.value], form['classes'].value)
+    newStudent(int(form['SID'].value), form['fname'].value, form['lname'].value, form['classes'].value)
 elif form['Function'].value == 'NTeacher':
-	newTeacher(form['ID'].value, form['fname'].value, form['lname'].value, form['classes'].value)
+	newTeacher(form['SID'].value, form['fname'].value, form['lname'].value, form['classes'].value)
 elif form['Function'].value == 'NTask':
 	newTask(form['Class'].value,form['Questions'].value,form['Answers'].value,form['name'].value)
 elif form['Function'].value == 'GTasks':
-	pass
+	getTasks(int(form['SID'].value))
 elif form['Function'].value == 'GStudents':
-	pass
+	getStudents(form['Class'].value)
 elif form['Function'].value == 'Complete':
-    pass
+    complete(int(form['SID'].value), int(form['TID'].value))
 elif form['Function'].value == 'GTask':
-    pass
+    getTask(int(form['TID'].value))
 con.close()
